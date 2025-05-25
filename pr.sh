@@ -1,5 +1,5 @@
 #!/bin/bash
-echo -e "\e[33m$(figlet "         OUALID BASH  !
+echo -e "\e[33m$(figlet " OUALID BASH PR !
 ")\e[0m"
 #!/bin/bash
 
