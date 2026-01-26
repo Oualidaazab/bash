@@ -26,7 +26,7 @@ show_menu() {
 
 # First Function
 run_thenetscan() {
-    echo "Launching  scan the network  which is online  and which is offline  ..." 
+    echo "Launching  scan the network  which is connect to the network  ..." 
    echo -e "${BLUE} for mor information enter Y and N for exit the programme :" 
    read  userinfo 
    if [[ "$userinfo" == "Y" ]] ; then  
@@ -44,8 +44,6 @@ run_singlehostmod() {
     read -p "enter the ip target white out mask   :" ip2 
     nmap $ip2
 }
-
-# 3  Function 
 run_stealthscan() {
     echo "Launching stealthscan..."
     read -p "enter the ip target  or the websit name like this example www.youtube.com : " ip3 
