@@ -1,4 +1,7 @@
 #!bin/bash 
+echo  "Grant root permissions to allow automatic execution from /bin "  
+sudo su 
+cd /bin 
 clear 
 echo -e "\e[32m$(figlet "         AAZAB NETWORK SCANER  ")\e[0m"
 echo -e "creat by oualid aazab " 
