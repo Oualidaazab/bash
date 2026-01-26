@@ -15,7 +15,7 @@ show_menu() {
     echo -e  "${YELLOW}====================================${NC}"
     echo "      Script Menu "
     echo "===================================="
-    echo "1) scan the network  which is online  and which is offline  "
+    echo "1) Scan the network to identify devices connected to it"
     echo "2) single host scan "
     echo "3) stealth scan"
     echo "4) OS detection "
