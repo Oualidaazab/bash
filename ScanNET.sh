@@ -23,7 +23,8 @@ show_menu() {
     echo "3) stealth scan"
     echo "4) OS detection "
     echo "5) agrissive scanning "
-    echo "6) Exit"
+    echo "6) scan all port from   1 to 65000 " 
+    echo "7) exit"
     echo "===================================="
 }
 
@@ -65,11 +66,16 @@ run_agrissivescanning() {
      nmap -A $ip5 
 } 
 
-
+port_scan() { 
+   echo "this is get the open ports and service " 
+   read -p "Enter the target machine ip :" ip6 
+   nmap -p- -sC -sV $ip6 
+   
+}
 
 while true; do
     show_menu
-    read -p "Select an option [1-6]: " choice
+    read -p "Select an option [1-7]: " choice
     case $choice in
         1)
            run_thenetscan
@@ -85,8 +91,11 @@ while true; do
             ;;
         5)
             run_agrissivescanning 
-            ;;
-        6)
+            ;; 
+        6) 
+            port_scan 
+            ;; 
+        7)
             echo "Exiting..."
             break
             ;; 
