@@ -23,8 +23,9 @@ show_menu() {
     echo "3) stealth scan"
     echo "4) OS detection "
     echo "5) agrissive scanning "
-    echo "6) scan all port from   1 to 65000 " 
-    echo "7) exit"
+    echo "6) scan all port from   1 to 65000 "  
+    echo "7) check if ther is vulnerability  like smb (eternal blue) and http "
+    echo "8) exit"
     echo "===================================="
 }
 
@@ -67,10 +68,27 @@ run_agrissivescanning() {
 } 
 
 port_scan() { 
-   echo "this is get the open ports and service " 
+   echo "scan open port and service  " 
    read -p "Enter the target machine ip :" ip6 
    nmap -p- -sC -sV $ip6 
    
+}
+# vunerabilty scan  using nmap script  
+vuln_scan(){
+    echo "chos which vuln you want to scan : " 
+    echo "1 : scan smb " 
+    echo  "2 : HTTP "  
+    read -p "Enter 1 to 2 " vuln_scan 
+    if [( "$vuln_scan" == "1" )] ; then   
+    read -p "Enter the target machine ip :" ip_machine1 
+    nmap -p 139 --script smb-vuln* $ip_machine1  
+    elif [( "$vuln_scan" == "2" )] ;  then 
+    read -p "Enter the target machine ip :" ip_machine2 
+    namp -p 20 --script http-vuln* $ip_machine2 
+    else  
+    echo "wrong input :  " 
+    exit 
+    fi  
 }
 
 while true; do
@@ -94,8 +112,11 @@ while true; do
             ;; 
         6) 
             port_scan 
-            ;; 
-        7)
+            ;;  
+        7)  
+           vuln_scan 
+           ;; 
+        8)
             echo "Exiting..."
             break
             ;; 
